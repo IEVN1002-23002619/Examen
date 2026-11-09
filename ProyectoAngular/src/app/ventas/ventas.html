@@ -1,0 +1,42 @@
+<section class="panel ventas">
+  <div class="titulo-panel">
+    <div>
+      <p class="paso">3 · CONSULTAS</p>
+      <h2>Ventas acumuladas</h2>
+    </div>
+  </div>
+
+  <form class="consulta" [formGroup]="formularioDia" (ngSubmit)="consultarDia()">
+    <label>Ventas del día
+      <select formControlName="dia">
+        <option *ngFor="let dia of dias" [value]="dia">{{ dia | titlecase }}</option>
+      </select>
+    </label>
+    <button class="boton" type="submit">Consultar día</button>
+  </form>
+  <div class="resumen">
+    <a *ngFor="let venta of ventasDia" [routerLink]="['/ventas', venta.idpedido]">
+      <span>{{ venta.nombre_cliente }} · {{ venta.fecha_pedido }}</span>
+      <strong>{{ venta.total | currency:'MXN':'symbol-narrow':'1.2-2' }}</strong>
+    </a>
+    <p *ngIf="ventasDia.length === 0" class="vacio">No hay ventas para ese día.</p>
+    <div class="total"><span>Total acumulado del día</span><strong>{{ totalDia | currency:'MXN':'symbol-narrow':'1.2-2' }}</strong></div>
+  </div>
+
+  <form class="consulta consulta-mes" [formGroup]="formularioMes" (ngSubmit)="consultarMes()">
+    <label>Ventas del mes
+      <select formControlName="mes">
+        <option *ngFor="let mes of meses" [value]="mes">{{ mes | titlecase }}</option>
+      </select>
+    </label>
+    <button class="boton" type="submit">Consultar mes</button>
+  </form>
+  <div class="resumen">
+    <a *ngFor="let venta of ventasMes" [routerLink]="['/ventas', venta.idpedido]">
+      <span>{{ venta.nombre_cliente }} · {{ venta.fecha_pedido }}</span>
+      <strong>{{ venta.total | currency:'MXN':'symbol-narrow':'1.2-2' }}</strong>
+    </a>
+    <p *ngIf="ventasMes.length === 0" class="vacio">No hay ventas para ese mes.</p>
+    <div class="total"><span>Total acumulado del mes</span><strong>{{ totalMes | currency:'MXN':'symbol-narrow':'1.2-2' }}</strong></div>
+  </div>
+</section>

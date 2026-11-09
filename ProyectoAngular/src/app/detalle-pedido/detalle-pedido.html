@@ -1,0 +1,36 @@
+<section class="panel detalle">
+  <div class="titulo-panel">
+    <div>
+      <p class="paso">2 · DETALLE</p>
+      <h2>Pizzas del pedido</h2>
+    </div>
+    <span>{{ pizzas.length }} artículo(s)</span>
+  </div>
+
+  <div class="tabla-contenedor">
+    <table>
+      <thead>
+        <tr><th>Tamaño</th><th>Ingredientes</th><th>Núm. pizzas</th><th>Subtotal</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pizza of pizzas; let i = index"
+            [class.seleccionada]="seleccionada === i"
+            (click)="seleccionar(i)">
+          <td>{{ pizza.tamano }}</td>
+          <td>{{ pizza.ingredientes.length ? pizza.ingredientes.join(', ') : 'Sin ingredientes' }}</td>
+          <td>{{ pizza.cantidad }}</td>
+          <td>{{ pizza.subtotal | currency:'MXN':'symbol-narrow':'1.2-2' }}</td>
+        </tr>
+        <tr *ngIf="pizzas.length === 0"><td colspan="4" class="vacio">Agrega una pizza para iniciar el pedido</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="acciones">
+    <button type="button" class="boton quitar" [disabled]="seleccionada === null" (click)="quitar()">Quitar seleccionada</button>
+    <div class="total-y-terminar">
+      <strong>Total: {{ totalPedido | currency:'MXN':'symbol-narrow':'1.2-2' }}</strong>
+      <button type="button" class="boton terminar" (click)="terminar()">Terminar pedido</button>
+    </div>
+  </div>
+</section>

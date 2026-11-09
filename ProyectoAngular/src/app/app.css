@@ -1,0 +1,20 @@
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem clamp(1rem, 4vw, 3rem);
+  color: #fff;
+  background: #812d22;
+}
+
+.marca { margin: 0; letter-spacing: .18em; font-size: .75rem; }
+h1 { margin: .25rem 0 0; font-size: 1.55rem; }
+.subtitulo { color: #f6d7c5; }
+
+main { max-width: 1450px; margin: 0 auto; padding: 1.5rem; }
+
+@media (max-width: 650px) {
+  .encabezado { align-items: flex-start; flex-direction: column; }
+  main { padding: 1rem; }
+}

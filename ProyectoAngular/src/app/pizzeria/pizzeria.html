@@ -1,0 +1,12 @@
+<div class="columnas">
+  <div class="columna-principal">
+    <app-pedido-form (agregarPizza)="agregarPizza($event)"></app-pedido-form>
+    <app-detalle-pedido
+      [pizzas]="pizzas"
+      [totalPedido]="totalPedido"
+      (quitarPizza)="quitarPizza($event)"
+      (terminarPedido)="terminarPedido()">
+    </app-detalle-pedido>
+  </div>
+  <app-ventas></app-ventas>
+</div>

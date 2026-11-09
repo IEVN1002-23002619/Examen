@@ -1,0 +1,4 @@
+.columnas { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(300px, .9fr); align-items: start; gap: 1rem; }
+.columna-principal { display: flex; flex-direction: column; gap: 1rem; }
+
+@media (max-width: 950px) { .columnas { grid-template-columns: 1fr; } }

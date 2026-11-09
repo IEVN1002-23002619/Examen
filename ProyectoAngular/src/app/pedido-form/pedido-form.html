@@ -1,0 +1,48 @@
+<section class="panel captura">
+  <div class="titulo-panel">
+    <div>
+      <p class="paso">1 · CAPTURA</p>
+      <h2>Datos del pedido</h2>
+    </div>
+    <span class="nota">Precios en pesos</span>
+  </div>
+
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="datos-cliente">
+      <label>Nombre completo
+        <input type="text" formControlName="nombre_cliente" placeholder="Nombre del cliente">
+      </label>
+      <label>Dirección
+        <input type="text" formControlName="direccion" placeholder="Dirección">
+      </label>
+      <label>Teléfono
+        <input type="tel" formControlName="telefono" placeholder="Teléfono">
+      </label>
+      <label>Fecha de compra
+        <input type="date" formControlName="fecha_pedido">
+      </label>
+    </div>
+
+    <div class="datos-pizza">
+      <fieldset>
+        <legend>Tamaño de pizza</legend>
+        <label><input type="radio" value="Chica" formControlName="tamano"> Chica · $40</label>
+        <label><input type="radio" value="Mediana" formControlName="tamano"> Mediana · $80</label>
+        <label><input type="radio" value="Grande" formControlName="tamano"> Grande · $120</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Ingredientes · $10 c/u</legend>
+        <label><input type="checkbox" formControlName="jamon"> Jamón</label>
+        <label><input type="checkbox" formControlName="pina"> Piña</label>
+        <label><input type="checkbox" formControlName="champinones"> Champiñones</label>
+      </fieldset>
+
+      <label class="cantidad">Número de pizzas
+        <input type="number" min="1" formControlName="cantidad">
+      </label>
+    </div>
+
+    <button class="boton principal" type="submit">Agregar pizza</button>
+  </form>
+</section>

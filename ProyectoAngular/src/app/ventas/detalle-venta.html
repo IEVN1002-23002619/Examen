@@ -1,0 +1,22 @@
+<section class="panel" *ngIf="pedido">
+  <a routerLink="/" class="volver">← Regresar</a>
+  <p class="paso">DETALLE DE VENTA #{{ pedido.idpedido }}</p>
+  <h2>{{ pedido.nombre_cliente }}</h2>
+  <p>{{ pedido.direccion }} · {{ pedido.telefono }} · {{ pedido.fecha_pedido }}</p>
+
+  <div class="tabla-contenedor">
+    <table>
+      <thead><tr><th>Tamaño</th><th>Ingredientes</th><th>Número de pizzas</th><th>Precio por pizza</th><th>Subtotal</th></tr></thead>
+      <tbody>
+        <tr *ngFor="let pizza of pedido.pizzas">
+          <td>{{ pizza.tamano }}</td>
+          <td>{{ pizza.ingredientes }}</td>
+          <td>{{ pizza.cantidad }}</td>
+          <td>{{ pizza.precio_unitario | currency:'MXN':'symbol-narrow':'1.2-2' }}</td>
+          <td>{{ pizza.subtotal | currency:'MXN':'symbol-narrow':'1.2-2' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="total">Total: {{ pedido.total | currency:'MXN':'symbol-narrow':'1.2-2' }}</p>
+</section>

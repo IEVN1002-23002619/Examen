@@ -1,0 +1,17 @@
+.panel { border-radius: 12px; padding: 1.25rem; background: #fff; box-shadow: 0 3px 14px #492b1a12; }
+.ventas { border: 3px solid #e2b900; background: #fffdf5; }
+.titulo-panel { margin-bottom: 1rem; }
+.paso { margin: 0; color: #8b6e00; font-size: .72rem; font-weight: 700; letter-spacing: .12em; }
+h2 { margin: .25rem 0 0; font-size: 1.25rem; }
+.consulta { display: flex; align-items: end; gap: .65rem; }
+label { display: flex; flex: 1; flex-direction: column; gap: .35rem; font-size: .88rem; font-weight: 700; }
+select { min-height: 40px; border: 1px solid #d7d0c8; border-radius: 6px; padding: .5rem; background: #fff; }
+.boton { min-height: 40px; padding: .55rem .85rem; border: 0; border-radius: 6px; color: #fff; background: #745c00; font-weight: 700; }
+.resumen { margin: .7rem 0 1rem; padding: .2rem .75rem; border: 1px solid #eee5c8; border-radius: 8px; background: #fff; }
+.resumen a, .total { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: .6rem 0; text-decoration: none; color: inherit; border-bottom: 1px solid #eee; font-size: .87rem; }
+.resumen a:hover { color: #8b4c00; }
+.total { border: 0; font-weight: 700; }
+.vacio { color: #777; font-size: .85rem; }
+.consulta-mes { margin-top: 1.1rem; }
+
+@media (max-width: 500px) { .consulta { align-items: stretch; flex-direction: column; } }
